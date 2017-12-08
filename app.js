@@ -7,8 +7,9 @@ const API_KEY = 'AIzaSyCAdpVRyNo83GCvpA1EXCU_oUJV3j3wmsY';
 const SEARCH_ENGINE_ID = '000418693802840694674:ldz-djbro9q';
 const URL = 'https://www.googleapis.com/customsearch/v1';
 const MLAB_URI = process.env.MLAB_URI;
-// const DEV_DB = 'mongodb://localhost:27017';
+const DEV_DB = 'mongodb://localhost:27017';
 
+app.use(express.static(__dirname + '/public'));
 mongoose.connect(MLAB_URI || DEV_DB, { useMongoClient: true });
 
 const searchSchema = new mongoose.Schema({
@@ -17,12 +18,14 @@ const searchSchema = new mongoose.Schema({
 });
 const Search = mongoose.model('Search', searchSchema);
 
+app.get('/', (req, res) => {
+  res.render('index');
+});
+
 app.get('/api/:query', (req, res) => {
-  let time = new Date();
-  time = time.toString();
   const newSearch = {
     query: req.params.query,
-    time,
+    time: new Date().toString(),
   };
   Search.create(newSearch, (err, search) => {
     if (err) {

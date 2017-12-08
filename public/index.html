@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <title>Image Search</title>
+</head>
+<body>
+  <h1>Image Search API</h1>
+  <p>Input a search query to see the top ten images from Google Image Search.</p>
+  <div class="code-box">
+    <code class="address">https://colin-fcc-image.herokuapp.com/api/Tokyo</code>
+  </div>
+  <p>The response will be an array of objects in the following format.</p>
+  <div class="code-box">
+    <code>{</code>
+    <br>
+    <code class="indent">"title": "Views of Tokyo",</code>
+    <br>
+    <code class="indent">"url": "www.photos.com/cool-tokyo-photo.jpg",</code>
+    <br>
+    <code class="indent">"context": "www.photos.com"</code>
+    <br>
+    <code>}</code>
+  </div>
+  <p>Optionally, you can specify an offset to skip through results by appending
+    <code>?offset=5</code> to the end of your search, where <em>5</em> can
+    be any number.</p>
+  <p>You can view the ten most recent search queries by visiting
+    <code>https://colin-fcc-image.herokuapp.com/recent</code>.  The response
+    will be an array of objects in the following format.</p>
+    <div class="code-box">
+      <code>{</code>
+      <br>
+      <code class="indent">"query": "Shiba",</code>
+      <br>
+      <code class="indent">"time": "Fri Dec 08 2017 20:04:46 GMT+0900 (JST)"</code>
+      <br>
+      <code>}</code>
+    </div>
+</body>
+</html>
